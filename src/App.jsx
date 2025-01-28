@@ -4,7 +4,9 @@ import { useRef, useState } from 'react'
 
 function App() {
 
-  const arrOld = [1,2,3,4,5,4,3,2,1]
+//const arrOld = [2,3,4,5,4,3,2,1]
+
+const arrOld = [{name:`Sasha`,age:29, city:`Minsk`},{city:`Minsk`,name:`Roma`,age: 35}] 
 
   const [arr,setArr] = useState(arrOld)
   //console.log(arr);
@@ -24,7 +26,7 @@ function App() {
 
   function pressEnter(event) {
     if (event.key === `Enter`) {
-      setArr([...arr, text]);
+      setArr([...arr, {name:text}]);
       setText('')
     }
   }

@@ -2,8 +2,6 @@ import { useState, useEffect} from "react";
 
 function List ({array}) {
 
-    
-
     const [item, setItem] = useState(array);
 
     useEffect(() => {
@@ -14,7 +12,7 @@ function List ({array}) {
 
             const newItem = [...item];
 
-            newItem[index] = `!!!${newItem[index]}`;
+            newItem[index].name = `!!!${newItem[index].name}`;
 
             setItem(newItem);
             console.log(newItem);
@@ -24,7 +22,7 @@ function List ({array}) {
     const result = item.map((item,index) => {
         return (
             <li key={index}>
-            {item}
+            {item.name}
             <button onClick={() => changeItem(index)}>Добавить !!!</button>
         </li>
         )
