@@ -8,22 +8,26 @@ function List ({array}) {
         setItem(array);
     },[array])
 
-        const changeItem = (index) => {
+    const changeItem = (id) => {
+        //console.log(`id=`+id);
+            
+        const newItem = [...item];
 
-            const newItem = [...item];
-
-            newItem[index].name = `!!!${newItem[index].name}`;
-
+        for (let i = 0; i < newItem.length; i++) {
+            if (newItem[i].id == id) {
+                newItem[i].name = `!!!${newItem[i].name}`;
+            }
+        }
             setItem(newItem);
             console.log(newItem);
         };
     
 
-    const result = item.map((item,index) => {
+    const result = item.map((item) => {
         return (
-            <li key={index}>
+            <li key={item.id}>
             {item.name}
-            <button onClick={() => changeItem(index)}>Добавить !!!</button>
+            <button onClick={() => changeItem(item.id)}>Добавить !!!</button>
         </li>
         )
     })
